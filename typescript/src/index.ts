@@ -42,6 +42,12 @@ export interface Code {
   manage_url: string;
   /** GET with the Authorization header; not a public image URL. Use image() or proxy it. */
   image_url: string;
+  /** Print-ready SVG through a signed link: no header needed, valid 24 hours. Good for <img>, scripts, one-off saves. */
+  svg_download_url: string;
+  /** Plain PNG (no frame or logo) through a signed link: no header needed, valid 24 hours. */
+  png_download_url: string;
+  /** When the two download links lapse; any read of the code returns fresh ones. */
+  download_expires_at: string;
 }
 
 export interface CreateCode {
@@ -181,6 +187,18 @@ export class QRFlow {
 
   /** Absolute URL of the print-ready SVG. It needs the Authorization header, so fetch it server-side (see image()). */
   imageUrl(id: string, size = 1024) { return `${this.base}/codes/${id}/image.svg?size=${size}`; }
+  /** Absolute URL of the plain PNG (no frame or logo). Needs the Authorization header like imageUrl(); or use code.png_download_url. */
+  pngUrl(id: string, size = 1024) { return `${this.base}/codes/${id}/image.png?size=${size}`; }
+  /** The plain PNG as bytes. Write it to disk or return it from your own route. */
+  async png(id: string, size = 1024): Promise<Uint8Array> {
+    const res = await this.fetchImpl(this.pngUrl(id, size), { headers: { authorization: `Bearer ${this.key}`, accept: "image/png" } });
+    if (!res.ok) {
+      let json: any = {};
+      try { json = JSON.parse(await res.text()); } catch { /* ignore */ }
+      throw new QRFlowError(res.status, json.error ?? "http_error", json.message ?? `HTTP ${res.status}`);
+    }
+    return new Uint8Array(await res.arrayBuffer());
+  }
   /** The print-ready SVG (frame, colors, logo) as a string. Serve it from your own route, or convert to PNG with sharp/resvg. */
   async image(id: string, size = 1024): Promise<string> {
     const res = await this.fetchImpl(this.imageUrl(id, size), { headers: { authorization: `Bearer ${this.key}`, accept: "image/svg+xml" } });

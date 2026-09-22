@@ -64,6 +64,12 @@ class QRFlow:
     def test_webhook(self, webhook_id: str): return self._call("POST", f"/webhooks/{webhook_id}")
     def delete_webhook(self, webhook_id: str): return self._call("DELETE", f"/webhooks/{webhook_id}")
     def image_url(self, code_id: str, size: int = 1024) -> str: return f"{self.base}/codes/{code_id}/image.svg?size={size}"
+    def png_url(self, code_id: str, size: int = 1024) -> str: return f"{self.base}/codes/{code_id}/image.png?size={size}"
+    def png(self, code_id: str, size: int = 1024) -> bytes:
+        """The plain PNG as bytes (needs the key). For a no-key link use code["png_download_url"]."""
+        req = urllib.request.Request(self.png_url(code_id, size), headers={"Authorization": f"Bearer {self.key}", "Accept": "image/png"})
+        with urllib.request.urlopen(req, timeout=self.timeout) as r:
+            return r.read()
 
 
 def verify_webhook(raw_body: bytes, signature_header: str, secret: str, tolerance_seconds: int = 300) -> bool:

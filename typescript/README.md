@@ -58,6 +58,8 @@ await qr.domains();                              // your link domains and the de
 await qr.listWebhooks(); qr.createWebhook({ url, events }); qr.testWebhook(id); qr.deleteWebhook(id);
 qr.imageUrl(id, size);                           // the SVG address (needs the Authorization header)
 await qr.image(id, size);                        // the print-ready SVG as a string
+await qr.png(id, size);                          // the plain PNG as bytes
+code.svg_download_url / code.png_download_url    // signed links, no header, valid 24 h: <img>, curl, "save to desktop"
 ```
 
 Every error is a `QRFlowError` with `status`, `code` (`invalid_token`, `upgrade_required`, `insufficient_scope`, `not_found`, `conflict`, `rate_limited`, `not_dynamic`, `no_domain`, …) and a human `message`. A 429 is retried automatically after `Retry-After` (twice by default; `retries: 0` to disable).

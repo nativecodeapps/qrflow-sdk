@@ -454,6 +454,80 @@
                 }
             }
         },
+        "/codes/{id}/image.png": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                },
+                {
+                    "name": "size",
+                    "in": "query",
+                    "schema": {
+                        "type": "integer",
+                        "minimum": 256,
+                        "maximum": 2048,
+                        "default": 1024
+                    }
+                },
+                {
+                    "name": "exp",
+                    "in": "query",
+                    "description": "From png_download_url: signed access without a bearer",
+                    "schema": {
+                        "type": "integer"
+                    }
+                },
+                {
+                    "name": "sig",
+                    "in": "query",
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "get": {
+                "tags": [
+                    "codes"
+                ],
+                "summary": "Plain PNG of the code (no frame or logo)",
+                "operationId": "getImagePng",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    },
+                    {}
+                ],
+                "responses": {
+                    "200": {
+                        "description": "PNG",
+                        "content": {
+                            "image/png": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "No bearer and no valid signed link",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/codes/{id}/image.svg": {
             "parameters": [
                 {
@@ -474,6 +548,21 @@
                         "maximum": 4096,
                         "default": 1024
                     }
+                },
+                {
+                    "name": "exp",
+                    "in": "query",
+                    "description": "From svg_download_url: signed access without a bearer",
+                    "schema": {
+                        "type": "integer"
+                    }
+                },
+                {
+                    "name": "sig",
+                    "in": "query",
+                    "schema": {
+                        "type": "string"
+                    }
                 }
             ],
             "get": {
@@ -482,6 +571,12 @@
                 ],
                 "summary": "Print-ready SVG with frame and colors",
                 "operationId": "getImage",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    },
+                    {}
+                ],
                 "responses": {
                     "200": {
                         "description": "SVG",
@@ -1171,7 +1266,20 @@
                         "type": "string"
                     },
                     "image_url": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Print-ready SVG; needs the Authorization header"
+                    },
+                    "svg_download_url": {
+                        "type": "string",
+                        "description": "Same SVG through a signed link that works for 24 hours with no header"
+                    },
+                    "png_download_url": {
+                        "type": "string",
+                        "description": "Plain PNG (no frame or logo) through a signed 24-hour link"
+                    },
+                    "download_expires_at": {
+                        "type": "string",
+                        "format": "date-time"
                     }
                 }
             },
