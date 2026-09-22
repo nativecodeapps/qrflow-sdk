@@ -1,0 +1,59 @@
+{
+  "name": "qrflow",
+  "version": "1.0.1",
+  "description": "QRFLOW.codes API client: create QR codes, change where dynamic codes point after printing, print them on your own domain, read scan analytics, verify webhooks. Zero dependencies; Node, Bun, Deno, Workers.",
+  "keywords": [
+    "qr",
+    "qr code",
+    "qr code generator",
+    "dynamic qr code",
+    "qr code api",
+    "qrcode",
+    "short link",
+    "scan analytics",
+    "webhooks",
+    "mcp",
+    "qrflow"
+  ],
+  "homepage": "https://qrflow.codes/developers",
+  "bugs": {
+    "url": "https://github.com/nativecodeapps/qrflow-sdk/issues",
+    "email": "hello@qrflow.codes"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nativecodeapps/qrflow-sdk.git",
+    "directory": "typescript"
+  },
+  "license": "MIT",
+  "author": "Native Code LLC (https://qrflow.codes)",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
