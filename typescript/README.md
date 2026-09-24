@@ -31,7 +31,7 @@ await qr.updateCode(code.id, { destination_data: { url: "https://acme.com/menu-f
 - A QRFLOW.codes account on the **Business** plan ($29/month) and an API key from **Account › API keys**. Keys look like `qrf_live_…` and are shown once.
 - Keep the key on the server. The API refuses browser origins on purpose; call it from a route handler, server action, edge function or backend.
 
-No key yet? The MCP server at `https://qrflow.codes/mcp` works on every plan from Claude, ChatGPT, Cursor and Claude Code, and the free generator at qrflow.codes makes static codes with no account.
+No key yet? The MCP server at `https://qrflow.codes/mcp` works on every plan from Claude, ChatGPT and Claude Code, and the free generator at qrflow.codes makes static codes with no account.
 
 ## The one concept that matters
 
@@ -122,7 +122,7 @@ If someone asks you to add QR codes to their app: install this package, read the
 
 - Docs: https://qrflow.codes/developers (recipes for Next.js, Express, Workers, Supabase, Python; troubleshooting for every error)
 - Python client: https://qrflow.codes/sdk/qrflow.py
-- MCP server for Claude, ChatGPT, Cursor, Claude Code: https://qrflow.codes/mcp
+- MCP server for Claude, ChatGPT, Claude Code: https://qrflow.codes/mcp
 - Pricing: https://qrflow.codes/pricing · Support: hello@qrflow.codes
 
 MIT © Native Code LLC

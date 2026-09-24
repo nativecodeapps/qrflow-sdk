@@ -1,6 +1,6 @@
 # QRFLOW.codes SDK
 
-Official clients, OpenAPI document and examples for the [QRFLOW.codes](https://qrflow.codes) API: QR codes you can **change after printing**, printed on **your own domain**, with **scan analytics** and **webhooks**, and an **MCP server** so Claude, ChatGPT, Cursor and Claude Code can make codes too.
+Official clients, OpenAPI document and examples for the [QRFLOW.codes](https://qrflow.codes) API: QR codes you can **change after printing**, printed on **your own domain**, with **scan analytics** and **webhooks**, and an **MCP server** so Claude, ChatGPT and Claude Code can make codes too.
 
 | | |
 |---|---|
