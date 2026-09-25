@@ -9,7 +9,7 @@ Official clients, OpenAPI document and examples for the [QRFLOW.codes](https://q
 | OpenAPI 3.1 | [`openapi.json`](openapi.json) · live copy at https://qrflow.codes/api/v1/openapi.json |
 | Examples | [`examples/`](examples) · Next.js, Cloudflare Workers, Express, FastAPI, Flask webhooks |
 | Docs | https://qrflow.codes/developers · Markdown for agents: https://qrflow.codes/llms-full.txt |
-| MCP server | `https://qrflow.codes/mcp` · [Claude directory](https://claude.ai/directory/qrflow) · registry name `codes.qrflow/qrflow` |
+| MCP server | `https://qrflow.codes/mcp` · [Claude directory](https://claude.ai/directory/qrflow) · [Smithery](https://smithery.ai/servers/native-code/qrflow) · [Glama](https://glama.ai/mcp/connectors/codes.qrflow/qrflow) · registry name `codes.qrflow/qrflow` |
 
 ## Five lines
 
