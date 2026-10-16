@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "qrflow-sdk": {
+    "qrflow.codes": {
       "url": "https://qrflow.codes/mcp"
     }
   }

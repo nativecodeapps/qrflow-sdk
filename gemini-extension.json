@@ -1,9 +1,9 @@
 {
-  "name": "qrflow-sdk",
+  "name": "qrflow.codes",
   "version": "1.0.0",
   "description": "Lets an AI assistant create dynamic QR codes that can change after printing",
   "mcpServers": {
-    "qrflow-sdk": {
+    "qrflow.codes": {
       "httpUrl": "https://qrflow.codes/mcp"
     }
   }
