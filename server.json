@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.nativecodeapps/qrflow-sdk",
+  "description": "Lets an AI assistant create dynamic QR codes that can change after printing",
+  "version": "1.0.0",
+  "title": "QRFLOW.codes",
+  "websiteUrl": "https://qrflow.codes/developers",
+  "repository": {
+    "url": "https://github.com/nativecodeapps/qrflow-sdk",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://github.com/nativecodeapps.png?size=200"
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://qrflow.codes/mcp"
+    }
+  ]
+}
