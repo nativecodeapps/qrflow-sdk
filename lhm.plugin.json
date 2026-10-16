@@ -1,5 +1,5 @@
 {
-  "identifier": "nativecodeapps-qrflow-sdk",
+  "identifier": "nativecodeapps-qrflow",
   "name": "QRFLOW.codes",
   "version": "1.0.0",
   "description": "Lets an AI assistant create dynamic QR codes that can change after printing",
