@@ -1,0 +1,101 @@
+{
+  "identifier": "nativecodeapps-qrflow-sdk",
+  "name": "QRFLOW.codes",
+  "version": "1.0.0",
+  "description": "Lets an AI assistant create dynamic QR codes that can change after printing",
+  "author": "nativecodeapps",
+  "authorUrl": "https://github.com/nativecodeapps",
+  "category": "developer",
+  "cloudEndpoint": "https://qrflow.codes/mcp",
+  "homepage": "https://qrflow.codes/developers",
+  "icon": "https://qrflow.codes/icon-512.png",
+  "tags": [
+    "qr-code",
+    "dynamic-qr-code",
+    "qr-code-generator",
+    "scan-analytics",
+    "webhooks",
+    "custom-domain",
+    "openapi",
+    "typescript"
+  ],
+  "tools": [
+    {
+      "name": "list_code_kinds",
+      "description": "Every kind of QR code QRFLOW can make, the fields each one needs and the plan it requires.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "list_qr_codes",
+      "description": "List the account's QR codes, newest first, with scan counts and the printed short link.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_qr_code",
+      "description": "One QR code by id: what it opens, whether it is dynamic, its short link, scans and image.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "create_qr_code",
+      "description": "Create a QR code of any kind and return its printed short link and image.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "update_qr_code",
+      "description": "Re-point a printed dynamic code, or change its label, link name, colors, pause or expiry.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "delete_qr_code",
+      "description": "Delete a QR code and its scan history for good.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_scan_stats",
+      "description": "Scan analytics for one code by day, device, country, city, browser, operating system or referrer.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "bulk_create_qr_codes",
+      "description": "Create many dynamic codes at once from a list of destinations.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "list_domains",
+      "description": "The account's connected link domains, which one is the default, and their ids.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_qr_image",
+      "description": "Return the QR code image inline, plus signed 24 hour PNG and SVG download links.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_account",
+      "description": "Who is signed in, their plan, and the limits that apply.",
+      "inputSchema": {
+        "type": "object"
+      }
+    }
+  ]
+}
